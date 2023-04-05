@@ -20,12 +20,21 @@ export class UserService {
     return this.userModel.findAll();
   }
 
-  findOne(id: string): Promise<User> {
-    return this.userModel.findOne({
+  async findOne(user_id: number): Promise<User> {
+
+    const user = await this.userModel.findOne({
       where: {
-        id,
+        user_id:user_id,
       },
-    });
+    })
+
+    if (! user) {
+
+      throw new HttpException('User Not Found', 400);
+      
+    }
+
+    return user
   }
 
   async potencialUser(email: string): Promise<User> {
@@ -33,7 +42,7 @@ export class UserService {
       where: {
         email: email
       },
-    });
+    })
   }
 
   async create(userDto: CreateUserDTO): Promise<any> {
@@ -60,8 +69,4 @@ export class UserService {
 
 }
 
-  async remove(id: string): Promise<void> {
-    const user = await this.findOne(id);
-    await user.destroy();
-  }
 }

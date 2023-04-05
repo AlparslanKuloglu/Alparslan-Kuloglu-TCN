@@ -6,12 +6,6 @@ import { BullModule } from '@nestjs/bull';
 @Module({
   imports: [SequelizeModule.forFeature([User]),
   CacheModule.register(),
-  BullModule.forRoot({
-    redis: {
-      host: 'localhost',
-      port: 6379,
-    },
-  }),
   BullModule.registerQueue({
     name: 'order',
   })

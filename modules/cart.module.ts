@@ -9,22 +9,18 @@ import { Order } from 'models/order.model';
 import { BullModule } from '@nestjs/bull';
 import { CategoryService } from 'services/category.service';
 import { Category } from 'models/category.model';
+import { UserService } from 'services/user.service';
+import { User } from 'models/user.model';
 
 
 @Module({
-  imports: [SequelizeModule.forFeature([Cart,Product,Order,Category]),
+  imports: [SequelizeModule.forFeature([Cart,Product,Order,Category, User, ]),
   CacheModule.register(),
-  BullModule.forRoot({
-    redis: {
-      host: 'localhost',
-      port: 6379,
-    }
-  }),
   BullModule.registerQueue({
     name: 'order',
   })
 ],
-  providers: [CartService,ProductService, CategoryService],
+  providers: [CartService,ProductService, CategoryService, UserService],
   controllers: [CartController],
   exports:[CartService]
 })

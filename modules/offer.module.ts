@@ -13,12 +13,6 @@ import { Category } from 'models/category.model';
   imports: [
   SequelizeModule.forFeature([Offer,Product, Category]),
   CacheModule.register(),
-  BullModule.forRoot({
-    redis: {
-      host: 'localhost',
-      port: 6379,
-    },
-  }),
   BullModule.registerQueue({
     name: 'order',
   })

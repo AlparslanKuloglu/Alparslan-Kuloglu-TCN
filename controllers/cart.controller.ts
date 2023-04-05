@@ -3,12 +3,14 @@ import { Param, UsePipes } from '@nestjs/common/decorators';
 import { CartService } from '../services/cart.service';
 import { ProductService } from 'services/product.service';
 import {AddToCartDTO} from 'dto/addToCartDTO';
+import { UserService } from 'services/user.service';
 
 @Controller()
 export class CartController {
   constructor(
   private readonly CartService: CartService,
-  private readonly ProductService: ProductService
+  private readonly ProductService: ProductService,
+  private readonly UserService: UserService,
    ) {}
 
 
@@ -17,6 +19,8 @@ export class CartController {
  async addToCart (@Body()AddToCartDTO:AddToCartDTO ): Promise<string> {
 
  try {
+
+    const user = await this.UserService.findOne(AddToCartDTO.user_id)
 
    const product = await this.ProductService.findOne(AddToCartDTO.product_id)
     if (product.stock_quantity < AddToCartDTO.piece ) {

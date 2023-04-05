@@ -9,12 +9,6 @@ import { Product } from 'models/product.model';
 
 @Module({
   imports: [SequelizeModule.forFeature([Category,Product]),
-  BullModule.forRoot({
-    redis: {
-      host: 'localhost',
-      port: 6379,
-    }
-  }),
   BullModule.registerQueue({
     name: 'order',
   })
