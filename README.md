@@ -6,7 +6,7 @@
 Projeyi reposunu git ile kendi localinize klonladıktan sonra;
 
 - npm install ile paketleri yükleyiniz.
-- app.module doasyında import edilen Redis ve Mysql sunucuları için kendi host bilgilerinizi giriniz.
+- app.module dosyasında import edilen Redis ve Mysql sunucuları için kendi host bilgilerinizi giriniz.
 
 - veritabanı modellerinin senkronize edilmesi için projeyi "npm start" komutu ile ayağa kaldırınız.
 - proje ayağa kalktıktan sonra "npx sequelize-cli db:seed:all" komutu ile seederdaki "products" ve "categories" verilerini çekiniz.
