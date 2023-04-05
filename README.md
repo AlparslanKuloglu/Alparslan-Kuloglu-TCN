@@ -3,7 +3,7 @@
 
 ## Proje clone işlemi ve gerekli paketlerin kurulumu
 
-Projeyi reposunu git ile kendi localinize klonladıktan sonra;
+Projeyi git ile kendi localinize klonladıktan sonra;
 
 - npm install ile paketleri yükleyiniz.
 - app.module dosyasında import edilen Redis ve Mysql sunucuları için kendi host bilgilerinizi giriniz.
