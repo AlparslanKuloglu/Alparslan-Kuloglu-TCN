@@ -46,6 +46,9 @@ export class ProductService {
 
 
    let category = await this.CategoryService.findOne(productDto.category_id)
+
+   if(! category){ throw new HttpException('Category Not Found', 400); } 
+
    let category_title = category.dataValues.title
 
     return this.productModel.create({
@@ -58,8 +61,9 @@ export class ProductService {
     });
   }
 
-  catch {
-    throw new HttpException('Product title should be unique to the author ', 400);
+  catch (error) {
+    
+    throw error
   }
 
   }
