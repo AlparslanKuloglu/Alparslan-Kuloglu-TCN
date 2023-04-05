@@ -1,7 +1,7 @@
 <h1><p align="center"> NestJS, Queue, Redis, API Service </p></h1>
 
 
-## Proje Clone işlemi ve Gerekli paketlerin kurulumu
+## Proje clone işlemi ve gerekli paketlerin kurulumu
 
 Projeyi reposunu git ile kendi localinize klonladıktan sonra;
 
